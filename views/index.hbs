@@ -46,9 +46,11 @@
             <h4>
                <a href="/genres">Жанры</a>
             </h4>
+            {{#if isAuth}}
             <h4>
                <a href="/profile">Профиль</a>
             </h4>
+            {{/if}}
             {{#if isLibrarian}}
                <h4>
                   <a href="/add">Добавить книгу</a>
