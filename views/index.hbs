@@ -2,7 +2,7 @@
    <header>
       <div class="nav-bar">
          <div class="logoContainer">
-            <a href="/" class="logoContainer">cheesBook</a>
+            <a href="/" class="logoContainer"><img src="/images/Лого-финал.png" alt=""></a>
          </div>
          <div class="searchContainer">
             <div class="d1">
@@ -20,6 +20,10 @@
             <a href="/profile" class="profileImg">
                <img src="/{{user.avatarUrl}}" />
             </a>
+            {{else}}
+            <h4>
+               <a href="/auth/registration">Авторизация</a>
+            </h4>
             {{/if}}
          </div>
       </div>
@@ -37,20 +41,17 @@
       <div class="sidebarColumn">
          <div class="columnButton">
             <h4>
-               <a href="/">главная</a>
+               <a href="/">Главная</a>
             </h4>
             <h4>
-               <a href="/genres">жанры</a>
-            </h4>
-            <h4>
-               <a href="/auth/registration">авторизация</a>
+               <a href="/genres">Жанры</a>
             </h4>
             <h4>
                <a href="/profile">Профиль</a>
             </h4>
             {{#if isLibrarian}}
                <h4>
-                  <a href="/add">добавить книгу</a>
+                  <a href="/add">Добавить книгу</a>
                </h4>
             {{/if}}
          </div>
@@ -70,12 +71,12 @@
                </h1>
             </div>
 
-               <div id="swiper" class="swiper">
+               <div id="swiper" class="swiper home-slider">
                   <!-- Additional required wrapper -->
                   <div class="swiper-wrapper">
                      <!-- Slides -->
                      <div class="swiper-slide"><img
-                           src="/images/trevel.png"
+                           src="/images/fantastic.png"
                            alt="slide-1"
                         /></div>
                      <div class="swiper-slide"><img
@@ -83,15 +84,15 @@
                            alt="slide-2"
                         /></div>
                      <div class="swiper-slide"><img
-                           src="/images/fantastic.png"
+                           src="/images/sience.png"
                            alt="slide-3"
                         /></div>
                      <div class="swiper-slide"><img
-                           src="/images/detective.png"
+                           src="/images/trevel.png"
                            alt="slide-4"
                         /></div>
                      <div class="swiper-slide"><img
-                           src="/images/sience.png"
+                           src="/images/detective.png"
                            alt="slide-5"
                         /></div>
                   </div>

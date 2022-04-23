@@ -301,8 +301,9 @@ header{
 
 }
 
-.logoContainer a{
-    font-size: 16px;
+.logoContainer img{
+    max-width: 40px;
+    height: auto;
 }
 
 .searchContainer{
@@ -697,4 +698,10 @@ body{
 }
 .txt{
     margin: 0 auto;
+}
+
+.home-slider img{
+    max-height: 350px;
+    width: 100%;
+    object-fit: cover;
 }
