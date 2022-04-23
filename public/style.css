@@ -639,9 +639,9 @@ body{
 }
 .centered {
     position: relative;
-    top: 20%;
+    top: 10%;
     right: -43%; 
-    height: 130%;
+    height: 100%;
     z-index: 200;
     width: 30%;
     margin: -50px 0 0 -100px;
@@ -674,7 +674,7 @@ body{
 .rega{
     padding: 10px;
     box-sizing: border-box;
-    height: 150%; 
+    height: 70%; 
     width: 100%;
 }
 
