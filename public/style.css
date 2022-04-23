@@ -302,7 +302,7 @@ header{
 }
 
 .logoContainer img{
-    max-width: 60px;
+    max-width: 110px;
     height: auto;
 }
 
@@ -641,7 +641,6 @@ body{
     position: relative;
     top: 10%;
     right: -43%; 
-    height: 100%;
     z-index: 200;
     width: 30%;
     margin: -50px 0 0 -100px;
@@ -657,7 +656,7 @@ body{
     bottom: 30%;
     right: 35%;
     width: 30%;
-    height:50%;
+    height: auto;
     margin: -50px 0 0 -100px;
     position: fixed;
 }
@@ -674,7 +673,6 @@ body{
 .rega{
     padding: 10px;
     box-sizing: border-box;
-    height: 70%; 
     width: 100%;
 }
 
@@ -693,7 +691,7 @@ body{
     width: 100%;
 }
 .logoA{
-    padding: 20px;
+    /* padding: 20px; */
     margin: 0 auto;
 }
 .txt{
@@ -702,6 +700,6 @@ body{
 
 .home-slider img{
     max-height: 350px;
-    width: 100%;
-    object-fit: cover;
+    width: auto;
+    object-fit: contain;
 }

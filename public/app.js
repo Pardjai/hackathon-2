@@ -12,7 +12,7 @@ window.onload = function () {
       },
       slidesPerGroup: 1,
       autoHeight: true,
-      slidesPerView: 2,
+      slidesPerView: 3,
       spaceBetween: 20,
       speed: 700
    });
