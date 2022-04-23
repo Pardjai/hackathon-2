@@ -2,22 +2,6 @@ const { Router } = require('express')
 const Book = require('../models/book')
 const router = Router()
 
-router.get('/', async (req, res) => {
-    const books = await Book.find()
-    const preValues = await Book.find().select('genre')
-    let allValues = preValues.map(book => book.genre)
-    allValues = [...new Set(allValues)]
-    const activeValues = allValues
-    
-    res.render('books', {
-       title: 'Книги',
-       isBooks: true,
-       books,
-       allValues,
-       activeValues
-    })
-})
-
 router.get('/:id', async(req, res) => {
     const book = await Book.findById(req.params.id)
     const {title, author, previewUrl, about} = book

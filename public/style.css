@@ -361,8 +361,8 @@ form {
     overflow: hidden;
 }
 .profileImg img{
-    width: 64px;
-    height: 64px;
+    width: 42px;
+    height: 42px;
     pointer-events: none;
 }
 
@@ -426,10 +426,9 @@ main{
     color: #000000;
 }
 .columnButton{
+    position: sticky;
     display: flex;
     margin-left: 20%;
-    height: 100%;
-    position: sticky;
     top: 72px;
     padding-top: 27px;
     padding-bottom: 25px;

@@ -80,6 +80,7 @@ const authRoutes = require("./routes/auth");
 const profileRoutes = require("./routes/profile");
 const addRoutes = require("./routes/add");
 const booksRoutes = require("./routes/books");
+const genresRoutes = require("./routes/genres");
 
 // подключение обработчиков GET-запросов
 app.use("/", homeRoutes);
@@ -87,6 +88,7 @@ app.use("/auth", authRoutes);
 app.use("/add", addRoutes);
 app.use("/profile", profileRoutes);
 app.use("/books", booksRoutes);
+app.use("/genres", genresRoutes);
 
 // Запуск сервера =====================================================================================================================================================================================================
 // определение порта

@@ -1,0 +1,133 @@
+
+	<div class="fixed">
+		<header>
+			<div class="nav-bar">
+				<div class="logoContainer">
+					<a href="/" class="logoContainer">cheesBook</a>
+				</div>
+				<div class="searchContainer">
+					<div class="d1">
+  						<form>
+  							<input type="text" placeholder="Искать здесь...">
+  							<button type="submit"></button>
+  						</form>
+					</div>
+				</div>
+				<div class="userContainer">
+					<div class="like">
+							
+					</div>
+					{{#if user}}
+            <a href="/profile" class="profileImg">
+               <img src="/{{user.avatarUrl}}" />
+            </a>
+            {{/if}}
+				</div>
+			</div>
+		</header>
+	</div>
+	<div class="backgroundVideo">
+    	<video loop muted autoplay class="back-video">
+        	<source src="video/library.mp4" type="video/mp4">
+    	</video>
+	</div>
+	<main>
+		<div class="mainContent">
+
+	 {{#if books.length}}
+       {{#each activeValues}}
+	   <div class="bookClassBooks">
+       <div class="typeTXT">
+			<h1>
+				<a href="/books/genres/{{this}}">
+					{{this}}
+				</a>
+			</h1>
+		</div>
+		<div class="typeIMG swiper-container">
+		<div class="bookTypeIMG swiper-wrapper">
+						
+   {{#each ../books}} 
+       {{#ifeq genre ../this }}
+	   <div class="spisok swiper-slide">
+			<div class="book">
+				<img src="/{{previewUrl}}">
+			</div>
+		</div>
+        {{/ifeq}}
+   {{/each}}
+   </div>
+   <div class="swiper-button-prev"></div>
+					<div class="swiper-button-next"></div>
+   </div>
+   
+   		</div>
+   {{/each}}
+
+   {{else}}
+   <p>Книг пока нет</p>
+   {{/if}}
+		</div>
+	</main>
+	<footer>
+		<section class="socialMedia">
+				 <a href="">
+					 <i
+						  class="fa fa-instagram"
+						  aria-hidden="true"
+					   ></i>
+				 </a>
+				 <a href="">
+					 <i
+						  class="fa fa-twitter"
+						  aria-hidden="true"
+					   ></i>
+				 </a>
+				 <a href="">
+					 <i
+						  class="fa fa-facebook"
+						  aria-hidden="true"
+					   ></i>
+				 </a>
+				 <a href="">
+					 <i
+						  class="fa fa-vk"
+						  aria-hidden="true"
+					   ></i>
+				 </a>
+				 <a href="">
+					 <i
+						  class="fa fa-telegram"
+						  aria-hidden="true"
+					   ></i>
+				 </a>
+			 </section>
+			 <ul class="feedback">
+				 <li>
+					 Реклама
+				 </li>
+				 <li>
+					 Соглашение
+				 </li>
+				 <li>
+					 Предложения
+				 </li>
+				 <li>
+					 Служба поддержки
+				 </li>
+			 </ul>
+			 <div class="line">
+				 
+			 </div>
+			 <section class="info">
+				 <div class="year">
+					 <a href="/">2022 Oculus</a>
+				 </div>
+				 <div class="none">
+					 
+				 </div>
+				 <div class="myCompany">
+					 <a href="/">2022 Oculus</a>
+				 </div>
+			 </section>
+	 </footer>
