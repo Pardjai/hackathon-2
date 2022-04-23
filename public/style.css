@@ -653,12 +653,15 @@ body{
 }
 
 .centered.login{
-    bottom: 30%;
     right: 35%;
     width: 30%;
     height: auto;
     margin: -50px 0 0 -100px;
     position: fixed;
+}
+
+.login .btn{
+    margin-bottom: 20px;
 }
 
 .nav-bar a{
