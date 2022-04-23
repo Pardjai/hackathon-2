@@ -1,0 +1,56 @@
+<div id="courses">
+    <form action="/books" method="POST">
+    {{#if books.length}}
+    {{#each allValues}}
+        <div class="input-field accessCheckbox">
+               <label>
+                  <input type="checkbox" class="filled-in" value="{{this}}" name="v1"/>
+                  <span>{{this}}</span>
+               </label>
+            </div>
+            {{/each}}
+            <button
+               type="submit"
+               class="btn"
+            >Отфильтровать</button>
+            {{/if}}
+    </form>
+   {{#if books.length}}
+   <div class="row">
+       {{#each activeValues}}
+        <h1>{{this}}</h1>
+   {{#each ../books}} 
+       {{#ifeq genre ../this }}
+        <div class="card-container">
+            <div class="card">
+                <div class="card-image">
+                <img src="/{{previewUrl}}" alt="{{title}}">
+
+                </div>
+                <div class="card-content">
+                <h2 class="card-title">{{title}}</h2>
+                <span class="price">{{author}}</span>
+                <p>
+                    {{about}}
+                </p>
+                </div>
+                <div class="card-action actions-btn">
+                <a href="/books/{{id}}">Открыть</a>
+                {{#if @root.isLibrarian}}
+                <a href="/books/{{id}}/edit?allow=true">Редактировать</a>
+                {{/if}}
+                </div>
+            </div>
+        </div>
+        {{/ifeq}}
+   
+   {{/each}}
+   {{/each}}
+   
+
+ 
+ </div>
+   {{else}}
+   <p>Книг пока нет</p>
+   {{/if}}
+</div>

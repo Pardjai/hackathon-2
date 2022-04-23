@@ -1,0 +1,166 @@
+<div class="fixed">
+   <header>
+      <div class="nav-bar">
+         <div class="logoContainer">
+            <a href="#" class="logoContainer">cheesBook</a>
+         </div>
+         <div class="searchContainer">
+            <div class="d1">
+               <form>
+                  <input type="text" placeholder="Искать здесь..." />
+                  <button type="submit"></button>
+               </form>
+            </div>
+         </div>
+         <div class="userContainer">
+            <div class="like">
+
+            </div>
+            <div class="profileImg">
+               <img src="images/sus.png" />
+            </div>
+         </div>
+      </div>
+   </header>
+</div>
+<main>
+   <div class="banner">
+      <div  class="bannerImg">
+         <img src="images/banner.png" />
+      </div>
+   </div>
+
+   <div class="mainpage_main">
+
+      <div class="sidebarColumn">
+         <div class="columnButton">
+            <h4>
+               <a href="/">главная</a>
+            </h4>
+            <h4>
+               <a href="/books">книги</a>
+            </h4>
+            <h4>
+               <a href="/auth/login">Вход</a>
+            </h4>
+            <h4>
+               <a href="/profile">Профиль</a>
+            </h4>
+            {{#if isLibrarian}}
+               <h4>
+                  <a href="/profile">добавить книгу</a>
+               </h4>
+            {{/if}}
+         </div>
+      </div>
+      <div class="mainColumn">
+         <div class="bannerNew">
+            <a href="">
+               <img src="images/star_wars.png" />
+            </a>
+         </div>
+         <div class="bookClass">
+            <div class="typeTXT">
+               <h1>
+                  <a href="">
+                     Жанры
+                  </a>
+               </h1>
+            </div>
+
+               <div id="swiper" class="swiper">
+                  <!-- Additional required wrapper -->
+                  <div class="swiper-wrapper">
+                     <!-- Slides -->
+                     <div class="swiper-slide"><img
+                           src="/images/trevel.png"
+                           alt="slide-1"
+                        /></div>
+                     <div class="swiper-slide"><img
+                           src="/images/roman.png"
+                           alt="slide-2"
+                        /></div>
+                     <div class="swiper-slide"><img
+                           src="/images/fantastic.png"
+                           alt="slide-3"
+                        /></div>
+                     <div class="swiper-slide"><img
+                           src="/images/detective.png"
+                           alt="slide-4"
+                        /></div>
+                     <div class="swiper-slide"><img
+                           src="/images/sience.png"
+                           alt="slide-5"
+                        /></div>
+                  </div>
+                  <!-- If we need pagination -->
+                  <div class="swiper-pagination"></div>
+               </div>
+            </div>
+ 
+
+      </div>
+   </div>
+</main>
+<footer>
+   <section class="socialMedia">
+			<a href="">
+				<i
+                     class="fa fa-instagram"
+                     aria-hidden="true"
+                  ></i>
+			</a>
+			<a href="">
+				<i
+                     class="fa fa-twitter"
+                     aria-hidden="true"
+                  ></i>
+			</a>
+			<a href="">
+				<i
+                     class="fa fa-facebook"
+                     aria-hidden="true"
+                  ></i>
+			</a>
+			<a href="">
+				<i
+                     class="fa fa-vk"
+                     aria-hidden="true"
+                  ></i>
+			</a>
+			<a href="">
+				<i
+                     class="fa fa-telegram"
+                     aria-hidden="true"
+                  ></i>
+			</a>
+		</section>
+		<ul class="feedback">
+			<li>
+				Реклама
+			</li>
+			<li>
+				Соглашение
+			</li>
+			<li>
+				Предложения
+			</li>
+			<li>
+				Служба поддержки
+			</li>
+		</ul>
+		<div class="line">
+			
+		</div>
+		<section class="info">
+			<div class="year">
+				<a href="#">2022 Oculus</a>
+			</div>
+			<div class="none">
+				
+			</div>
+			<div class="myCompany">
+				<a href="#">2022 Oculus</a>
+			</div>
+		</section>
+</footer>

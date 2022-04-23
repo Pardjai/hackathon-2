@@ -1,0 +1,94 @@
+<form action="/books/edit" method="POST">
+   <div class="input-field">
+               <input
+                  id="title"
+                  name="title"
+                  type="text"
+                  class="validate"
+                  required
+                  value="{{title}}"
+               />
+               <label for="title">Название</label>
+               <span class="helper-text" data-error="Название"></span>
+            </div>
+
+            <div class="input-field">
+               <input
+                  id="author"
+                  name="author"
+                  type="text"
+                  class="validate"
+                  required
+                  value="{{author}}"
+               />
+               <label for="author">Автор</label>
+               <span class="helper-text" data-error="Автор"></span>
+            </div>
+
+            <div class="input-field">
+               <input
+                  id="genre"
+                  name="genre"
+                  type="text"
+                  class="validate"
+                  required
+                  value="{{genre}}"
+               />
+               <label for="genre">Жанр</label>
+               <span class="helper-text" data-error="Жанр"></span>
+            </div>
+
+            <div class="input-field col s12">
+               <textarea
+                  id="about"
+                  name="about"
+                  class="materialize-textarea"
+                  required
+               >{{about}}</textarea>
+               <label for="about">Описание</label>
+
+               <span
+                  class="helper-text"
+                  data-error="Введите содержание отрывка"
+               ></span>
+            </div>
+
+            <div class="input-field">
+               <input
+                  id="url"
+                  name="url"
+                  type="text"
+                  class="validate"
+                  value="{{url}}"
+               />
+               <label for="url">URL</label>
+               <span class="helper-text" data-error="URL"></span>
+            </div>
+
+            <div class="file-field input-field">
+            <div class="btn">
+               <span>Изменить превью</span>
+               <input type="file" name="preview">
+               <i class="fa fa-check-square-o" aria-hidden="true"></i>
+            </div>
+            
+            <div class="file-path-wrapper">
+               <input class="file-path validate" type="text" value="{{previewUrl}}">
+            </div>
+         </div>
+
+            <div class="input-field checkbox-wrapper">
+               <label>
+                  <input name="isAvailable" type="checkbox" class="filled-in" {{#if isAvailable}}checked{{/if}}/>
+                  <span>В наличии</span>
+               </label>
+            </div>
+   <input type="hidden" name="id" id="id" value="{{id}}">
+
+   <button type="submit" class="btn">Сохранить изменения</button>
+</form>
+<form action="/books/remove" method="POST">
+   <input type="hidden" name="id" value="{{id}}">
+
+   <button class="btn red">Удалить</button>
+</form>

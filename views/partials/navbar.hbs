@@ -1,0 +1,36 @@
+<nav>
+   <div class="nav-wrapper">
+      
+      <a href="/" class="brand-logo">Home</a>
+      <a data-target="side-out" class="sidenav-trigger"><i class="fa fa-bars fa-lg"></i></a>
+      <ul id="nav" class="right hide-on-med-and-down">
+          {{#if isBooks}}
+            <li class="active"><a href="/books">Книги</a></li>
+            {{else}}
+            <li><a href="/books">Книги</a></li>
+            {{/if}}
+
+         {{#if isAuth}}
+
+            {{#if isProfile}}
+            <li class="active"><a href="/profile">Профиль</a></li>
+            {{else}}
+            <li><a href="/profile">Профиль</a></li>
+            {{/if}}
+
+            <li><a href="/auth/logout">Выйти</a></li>
+
+        {{else}}
+
+            {{#if isLogin}}
+            <li class="active"><a href="/auth/login#login">Вход</a></li>
+            {{else}}
+            <li><a href="/auth/login#login">Вход</a></li>
+            {{/if}}
+
+         {{/if}}
+
+      </ul>
+   </div>
+   
+</nav>
