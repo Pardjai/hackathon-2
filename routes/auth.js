@@ -19,6 +19,13 @@ router.get('/login', (req, res) => {
     })
 })
 
+router.get('/registration', (req, res) => {
+    res.render('auth/registration', {
+       title: 'Регистрация',
+       isLogin: true
+    })
+})
+
 router.get('/logout', async (req, res) => {
     req.session.destroy(() => {
        res.redirect('/auth/login#login')
@@ -60,7 +67,7 @@ router.get('/logout', async (req, res) => {
  })
  router.post('/register', /*registerValidators,*/ async (req, res) => {
     try {
-       const { name, email, password } = req.body
+       const { name, email, phone, password } = req.body
        req.session.registerData = { name, email }
        const errors = validationResult(req)
        if (!errors.isEmpty()) {
@@ -71,6 +78,7 @@ router.get('/logout', async (req, res) => {
        const user = new User({
          name,
          email,
+         phone,
          password: hashPassword,
        })
        await user.save()
@@ -78,7 +86,7 @@ router.get('/logout', async (req, res) => {
           err ? console.log(err) :
           smtpTransport.close()
        })
-       res.redirect('/auth/login#login')
+       res.redirect('/profile')
     } catch (err) {
        throw err
     }

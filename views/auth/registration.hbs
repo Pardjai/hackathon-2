@@ -1,0 +1,121 @@
+<div class="backgroundVideo">
+    	<video loop muted autoplay class="back-video">
+        	<source src="/video/library.mp4" type="video/mp4">
+    	</video>
+	</div>
+	<div class="centered">
+		<div class="logo">
+			<a href="" class="logoA">
+				<img src="" class="">
+			</a>
+		</div>
+		<div class="rega">
+			<div id="register" class="">
+         {{#if registerError}}
+            <p class="alert">{{registerError}}</p>
+         {{/if}}
+         <form action="/auth/register" method="POST">
+
+            <div class="input-field">
+               <input
+                  id="name"
+                  name="name"
+                  type="text"
+                  class="validate"
+                  required
+                  value="{{registerData.name}}"
+               />
+               <label for="name">Имя</label>
+               <span class="helper-text" data-error="Введите имя"></span>
+            </div>
+
+            <div class="input-field">
+               <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  class="validate"
+                  required
+                  value="{{registerData.email}}"
+               />
+               <label for="email">Email</label>
+               <span class="helper-text" data-error="Введите email"></span>
+            </div>
+
+            <div class="input-field">
+               <input
+                  id="phone"
+                  name="phone"
+                  type="text"
+                  class="validate"
+                  required
+                  value="{{registerData.phone}}"
+               />
+               <label for="phone">Номер телефона</label>
+               <span class="helper-text" data-error="Введите номер телефона"></span>
+            </div>
+
+            <div class="input-field">
+               <input
+                  id="password"
+                  name="password"
+                  type="password"
+                  class="validate"
+                  required
+               />
+               <label for="password">Пароль</label>
+               <button type="button" class="btn btn-show-pass"><i
+                     class="fa fa-eye"
+                     aria-hidden="true"
+                  ></i></button>
+               <span class="helper-text" data-error="Введите пароль"></span>
+            </div>
+
+            <div class="input-field">
+               <input
+                  id="confirm"
+                  name="confirm"
+                  type="password"
+                  class="validate"
+                  required
+               />
+               <label for="confirm">Повторите пароль</label>
+               <button type="button" class="btn btn-show-pass"><i
+                     class="fa fa-eye"
+                     aria-hidden="true"
+                  ></i></button>
+               <span class="helper-text" data-error="Повторите пароль"></span>
+            </div>
+
+            <div class="input-field accessCheckbox">
+               <label>
+                  <input type="checkbox" class="filled-in" />
+                  <span>Я даю своё согласие на обработку персональных данных</span>
+               </label>
+            </div>
+
+            <p class="alert" id="alertConfirmPassword" hidden>Пароли не
+               совпадают</p>
+
+            <input type="hidden" name="_csrf" value="{{csurf}}" />
+
+            <button
+               type="submit"
+               class="btn"
+               data-role="submitConfirmingForm"
+               disabled
+            >Зарегистрироваться</button>
+         </form>
+         <div class="logIn">
+			<div class="txt">
+				Уже есть аккаунт?
+				<a href="/auth/login">
+					Войти
+				</a>
+			</div>
+			
+		</div>
+      </div>
+		</div>
+		
+	</div>

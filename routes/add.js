@@ -2,9 +2,15 @@ const { Router } = require('express')
 const router = Router()
 const Book = require('../models/book')
 
+router.get('/', (req, res) => {
+   res.render('add', {
+      title: 'Добавление книги',
+   })
+})
+
 router.post('/', async (req, res) => {
         try {
-           const { title, author, genre, about, url } = req.body
+           const { title, author, genre, about, url, publisher, year } = req.body
            const isAvailable = false || !!(req.body.isAvailable)
            req.session.registerData = { title, author, genre, about }
 
@@ -16,6 +22,8 @@ router.post('/', async (req, res) => {
             genre,
             about,
             url,
+            publisher,
+            year,
             previewUrl,
             isAvailable,
            })

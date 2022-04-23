@@ -2,7 +2,7 @@
    <header>
       <div class="nav-bar">
          <div class="logoContainer">
-            <a href="#" class="logoContainer">cheesBook</a>
+            <a href="/" class="logoContainer">cheesBook</a>
          </div>
          <div class="searchContainer">
             <div class="d1">
@@ -16,9 +16,11 @@
             <div class="like">
 
             </div>
-            <div class="profileImg">
-               <img src="images/sus.png" />
-            </div>
+            {{#if user}}
+            <a href="/profile" class="profileImg">
+               <img src="/{{user.avatarUrl}}" />
+            </a>
+            {{/if}}
          </div>
       </div>
    </header>
@@ -41,14 +43,14 @@
                <a href="/books">книги</a>
             </h4>
             <h4>
-               <a href="/auth/login">Вход</a>
+               <a href="/auth/registration">авторизация</a>
             </h4>
             <h4>
                <a href="/profile">Профиль</a>
             </h4>
             {{#if isLibrarian}}
                <h4>
-                  <a href="/profile">добавить книгу</a>
+                  <a href="/add">добавить книгу</a>
                </h4>
             {{/if}}
          </div>

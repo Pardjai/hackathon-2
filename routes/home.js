@@ -5,9 +5,10 @@ const router = Router()
 
 /* обработака http-запросов */
 router.get('/', (req, res) => {
+    const user = req.session.user
     res.render('index', {
-        title: 'Страница',
-        layout: 'home',
+        title: 'cheesBook',
+        user,
     })
 })
 

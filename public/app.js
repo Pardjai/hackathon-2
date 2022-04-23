@@ -34,23 +34,27 @@ window.onload = function () {
     
     if(alertConfirmPassword && inputConfirmPassword && inputPassword){
        inputConfirmPassword.addEventListener('input', (e) => {
-          alertConfirmPassword.removeAttribute('hidden')
-          if (inputPassword.value === inputConfirmPassword.value && isChecked(regCheckbox)){
-             alertConfirmPassword.setAttribute('hidden', true)
-             btnSubmit.removeAttribute('disabled')
-          } else {
-             btnSubmit.setAttribute('disabled', true)
-          }
+         alertConfirmPassword.removeAttribute('hidden')
+         if (inputPassword.value === inputConfirmPassword.value){
+            alertConfirmPassword.setAttribute('hidden', true)
+            if (isChecked(regCheckbox)){
+            btnSubmit.removeAttribute('disabled')
+            }else {
+            btnSubmit.setAttribute('disabled', true)
+         }
+        }
        })
     
        inputPassword.addEventListener('input', (e) => {
           alertConfirmPassword.removeAttribute('hidden')
-          if (inputPassword.value === inputConfirmPassword.value && isChecked(regCheckbox)){
+          if (inputPassword.value === inputConfirmPassword.value){
              alertConfirmPassword.setAttribute('hidden', true)
+             if (isChecked(regCheckbox)){
              btnSubmit.removeAttribute('disabled')
-          } else {
+             }else {
              btnSubmit.setAttribute('disabled', true)
           }
+         }
        })
 
        regCheckbox.addEventListener('change', (e) => {
