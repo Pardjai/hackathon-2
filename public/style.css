@@ -503,9 +503,9 @@ footer{
     background:#1F1F1F;
 }
 .spisok{
-    padding-left: 20px;
+    
     float: right;
-    display: flex;
+    
     overflow-x: auto;
 }
 .spisok li{

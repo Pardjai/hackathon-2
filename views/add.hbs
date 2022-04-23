@@ -97,11 +97,16 @@
             </div>
          </div>
 
-            <div class="input-field checkbox-wrapper">
-               <label>
-                  <input name="isAvailable" type="checkbox" class="filled-in" checked/>
-                  <span>В наличии</span>
-               </label>
+            <div class="input-field">
+               <input
+                  id="inAvailable"
+                  name="inAvailable"
+                  type="number"
+                  class="validate"
+                  required
+               />
+               <label for="inAvailable">Количество</label>
+               <span class="helper-text" data-error="Количество"></span>
             </div>
 
 

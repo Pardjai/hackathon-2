@@ -5,7 +5,8 @@ const router = Router()
 router.get('/', async (req, res) => {
     const books = await Book.find()
     const preValues = await Book.find().select('genre')
-    const allValues = preValues.map(book => book.genre)
+    let allValues = preValues.map(book => book.genre)
+    allValues = [...new Set(allValues)]
     const activeValues = allValues
     
     res.render('books', {
@@ -52,7 +53,6 @@ router.post('/', async (req, res) => {
     const preValues = await Book.find().select('genre')
     const allValues = preValues.map(book => book.genre)
     const activeValues = Object.values(req.body) == 0 ? allValues : Object.values(req.body)
-       
 
     const books = await Book.find()
     const filteredBooks = books.filter(book => activeValues.includes(book.genre))

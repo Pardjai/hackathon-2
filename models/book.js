@@ -24,7 +24,7 @@ publisher: {
     type: String,
     required: true,
 },
-isAvailable: {
+inAvailable: {
     type: Number,
     required: true,
 },

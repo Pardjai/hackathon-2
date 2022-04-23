@@ -10,8 +10,7 @@ router.get('/', (req, res) => {
 
 router.post('/', async (req, res) => {
         try {
-           const { title, author, genre, about, url, publisher, year } = req.body
-           const isAvailable = false || !!(req.body.isAvailable)
+           const { title, author, genre, about, url, publisher, year, inAvailable } = req.body
            req.session.registerData = { title, author, genre, about }
 
            const previewUrl = req.file.path || ' '
@@ -25,7 +24,7 @@ router.post('/', async (req, res) => {
             publisher,
             year,
             previewUrl,
-            isAvailable,
+            inAvailable,
            })
 
            await book.save()
