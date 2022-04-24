@@ -15,6 +15,7 @@ router.get('/', async (req, res) => {
         title: 'Книги',
         books,
         activeValues: allValues,
+        allValues
     })
 })
 
@@ -79,7 +80,8 @@ if(activeValues.includes('isAvailable')){
         title: 'Книги',
         isBooks: true,
         books : filteredBooks,
-        activeValues
+        activeValues,
+        allValues
      })
 })
 

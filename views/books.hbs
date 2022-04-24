@@ -45,36 +45,39 @@
 						Жанр
 					</h6>
 					<div class="checkBox">
-						
+						{{#ifinc allValues 'Детектив'}}
 						<label>
                   			<input name="Детектив" type="checkbox" class="filled-in" {{#ifinc activeValues "Детектив"}}checked{{/ifinc}}/>
                   			<span>
                   				Детектив
                   			</span>
                			</label>
-
-					
+						{{/ifinc}}
+					{{#ifinc allValues 'Роман'}}
 					 	<label>
                   			<input name="Роман" type="checkbox" class="filled-in"  {{#ifinc activeValues "Роман"}}checked{{/ifinc}}/>
                   			<span>
                   				Роман
                   			</span>
                			</label>
-					
+					{{/ifinc}}
+					{{#ifinc allValues 'Фантастика'}}
 						<label>
                   			<input name="Фантастика" type="checkbox" class="filled-in"  {{#ifinc activeValues "Фантастика"}}checked{{/ifinc}}/>
                   			<span>
                   				Фантастика
                   			</span>
                			</label>
-					
+					{{/ifinc}}
+					{{#ifinc allValues 'Научная фантастика'}}
 					 	<label>
                   			<input name="Научная фантастика" type="checkbox" class="filled-in"  {{#ifinc activeValues "Научная фантастика"}}checked{{/ifinc}}/>
                   			<span>
                   				Научная фантастика
                   			</span>
                			</label>
-
+{{/ifinc}}
+{{#ifinc allValues 'Приключения'}}
 						<label>
                   			<input  name="Приключения" type="checkbox" class="filled-in"  {{#ifinc activeValues "Приключения"}}checked{{/ifinc}}/>
                   			<span>
@@ -82,33 +85,36 @@
                   			</span>
                			</label>
 					</div>
-
+{{/ifinc}}
 					<h6 class="hedder">
 						Тип
 					</h6>
 					<div class="checkBox">
 						
+						{{#ifinc allValues 'Книги'}}
 						<label>
                   			<input name="Книги" type="checkbox" class="filled-in"  {{#ifinc activeValues "Книги"}}checked{{/ifinc}}/>
                   			<span>
                   				Книги
                   			</span>
                			</label>
-
-					
+{{/ifinc}}
+					{{#ifinc allValues 'Журналы'}}
 					 	<label>
                   			<input name="Журналы" type="checkbox" class="filled-in"  {{#ifinc activeValues "Журналы"}}checked{{/ifinc}}/>
                   			<span>
                   				Журналы
                   			</span>
                			</label>
-					
+						   {{/ifinc}}
+					{{#ifinc allValues 'Газеты'}}
 						<label>
                   			<input name="Газеты" type="checkbox" class="filled-in"  {{#ifinc activeValues "Газеты"}}checked{{/ifinc}}/>
                   			<span>
                   				Газеты
                   			</span>
                			</label>
+						   {{/ifinc}}
 </div>
 					<div class="checkBox">
 						<label>
@@ -133,7 +139,6 @@
 					</div>
 					<div class="bookINFO">
 						<div class="bookTITLE">
-							<p><small>{{publisher}}, {{genre}}</small></p>
 							<a href="/books/{{_id}}">{{title}} ({{year}},  {{author}})</a>
 						</div>
 						<div class="bookREV">
