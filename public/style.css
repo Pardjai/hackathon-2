@@ -1244,3 +1244,7 @@ button.btn, .--orange{
 header form input{
     margin: 0 !important;
 }
+
+.spisok .book{
+    width: 100%;
+}
