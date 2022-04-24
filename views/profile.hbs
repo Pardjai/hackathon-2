@@ -29,9 +29,9 @@
       </div>
    </header>
 </div>
-<main>
+<main class="profileMain">
 		<div class="mainPage">
-			<div class="centered">
+			<div class="centered profile">
 				<div class="logo">
                 {{#if user.avatarUrl}}
 					<a href="" class="Avatar">
@@ -49,8 +49,23 @@
                 {{/if}}
 				</div>
 				<div class="rega">
-					<b>{{user.name}}</b>
-					<strong>{{user.email}}</strong>
+					
+         <p><b>{{user.name}}</b></p>
+         <p><strong>{{user.email}}</strong></p>
+            <form action="/profile/settings/{{userId}}" method="POST" enctype="multipart/form-data">
+         <div class="file-field input-field">
+            <div class="btn --orange">
+               <span>Загрузить аватар</span>
+               <input type="file" name="avatar">
+            </div>
+            
+            <div class="file-path-wrapper">
+               <input class="file-path validate" type="text">
+            </div>
+         </div>
+
+         <button type="submit" class="btn">Сохранить изменения</button>
+      </form>
 				</div>
 				<div class="logIn">
 					<div class="txt">

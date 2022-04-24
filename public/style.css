@@ -634,11 +634,11 @@ body{
 }
 .centered {
     position: relative;
-    bottom: -30%;
+    top: 10%;
     right: -43%; 
     z-index: 200;
     width: 30%;
-    margin: -50px 0 0 -100px;
+    margin: -50px 0 -50px -100px;
     background: #f0f0f0;
     display: flex;
     flex-direction: column;
@@ -837,7 +837,7 @@ main{
     padding-left:15%;
     padding-right:15%;
     
-}
+padding-top: 1%;}
 
 
 .bookCard{
@@ -1175,6 +1175,35 @@ header form input, header form input:focus{
     box-shadow: none !important;
 }
 
-button.btn{
+button.btn, .--orange{
     background: #ff9321 !important;
+}
+
+.profile .Avatar, .centered.profile{
+    padding: 0;
+}
+.profile .logo{
+    height: auto;
+}
+
+.centered.profile{
+    top: 50%;
+}
+
+.centered.profile{
+    height: auto;
+    padding: 3rem;
+    background: rgb(230, 230, 228);
+    right: -40%;
+}
+
+.mainPage{
+    display: flex;
+    align-items: flex-start;
+    max-height: 80vh;
+    padding-top: 5%;
+}
+
+.profileMain{
+    display: block;
 }
