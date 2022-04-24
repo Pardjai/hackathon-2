@@ -21,6 +21,10 @@
             <a href="/profile" class="profileImg">
                <img src="/{{user.avatarUrl}}" />
             </a>
+            {{else}}
+            <a href="/profile" class="profileImg splash">
+               <img src="images/plus.png" />
+            </a>
             {{/if}}
             {{else}}
             <h6>
@@ -40,7 +44,10 @@
 			</div>
 			<div class="bookINFO">
 				<div class="bookTITLE">
-					<h4>{{title}} ({{year}}, {{author}})</h4>
+					<h4>{{title}} </h4>
+				</div>
+            <div class="bookTITLE">
+					<h4>{{year}}, {{author}}</h4>
 				</div>
 				<div class="bookREV">
 					<p>{{about}}

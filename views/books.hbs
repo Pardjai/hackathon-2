@@ -21,6 +21,10 @@
             <a href="/profile" class="profileImg">
                <img src="/{{user.avatarUrl}}" />
             </a>
+            {{else}}
+            <a href="/profile" class="profileImg splash">
+               <img src="images/plus.png" />
+            </a>
             {{/if}}
             {{else}}
             <h6>
