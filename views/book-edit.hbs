@@ -38,6 +38,32 @@
                <span class="helper-text" data-error="Жанр"></span>
             </div>
 
+            <div class="input-field">
+               <input
+                  id="year"
+                  name="year"
+                  type="text"
+                  class="validate"
+                  value="{{year}}"
+                required
+               />
+               <label for="year">Год издания</label>
+               <span class="helper-text" data-error="Год издания" ></span>
+            </div>
+
+            <div class="input-field">
+               <input
+                  id="publisher"
+                  name="publisher"
+                  type="text"
+                  class="validate"
+                  value="{{publisher}}"
+                  required
+               />
+               <label for="publisher">Издательство</label>
+               <span class="helper-text" data-error="Издательство"></span>
+            </div>
+
             <div class="input-field col s12">
                <textarea
                   id="about"
@@ -77,11 +103,17 @@
             </div>
          </div>
 
-            <div class="input-field checkbox-wrapper">
-               <label>
-                  <input name="isAvailable" type="checkbox" class="filled-in" {{#if isAvailable}}checked{{/if}}/>
-                  <span>В наличии</span>
-               </label>
+            <div class="input-field">
+               <input
+                  id="inAvailable"
+                  name="inAvailable"
+                  type="number"
+                  class="validate"
+                  value="{{inAvailable}}"
+                  required
+               />
+               <label for="inAvailable">Количество</label>
+               <span class="helper-text" data-error="Количество"></span>
             </div>
    <input type="hidden" name="id" id="id" value="{{id}}">
 

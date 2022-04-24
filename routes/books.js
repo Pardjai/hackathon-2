@@ -26,7 +26,7 @@ router.get('/:id', async(req, res) => {
 
 router.get('/:id/edit', async(req, res) => {
     const book = await Book.findById(req.params.id)
-    const {title, author, genre, about, url, previewUrl, isAvailable} = book
+    const {title, author, genre, about, url, previewUrl, inAvailable, year, publisher} = book
     const id = req.params.id
 
     res.render('book-edit', {
@@ -36,7 +36,9 @@ router.get('/:id/edit', async(req, res) => {
         about,
         url,
         previewUrl,
-        isAvailable,
+        inAvailable,
+        year,
+        publisher,
         id
     })
 })

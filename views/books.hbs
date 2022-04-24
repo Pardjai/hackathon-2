@@ -108,6 +108,9 @@
 						<div class="bookNAL">
 							В наличии {{inAvailable}}
 						</div>
+						{{#if @root.isLibrarian}}
+							<a href="/books/{{_id}}/edit" class="btn --orange">Редактировать</a>
+						{{/if}}
 					</div>
 				</div>
 				{{/each}}
