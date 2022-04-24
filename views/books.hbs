@@ -83,6 +83,33 @@
                			</label>
 					</div>
 
+					<h6 class="hedder">
+						Тип
+					</h6>
+					<div class="checkBox">
+						
+						<label>
+                  			<input name="Книги" type="checkbox" class="filled-in" checked/>
+                  			<span>
+                  				Книги
+                  			</span>
+               			</label>
+
+					
+					 	<label>
+                  			<input name="Журналы" type="checkbox" class="filled-in" checked/>
+                  			<span>
+                  				Журналы
+                  			</span>
+               			</label>
+					
+						<label>
+                  			<input name="Газеты" type="checkbox" class="filled-in" checked/>
+                  			<span>
+                  				Газеты
+                  			</span>
+               			</label>
+</div>
 					<div class="checkBox">
 						<label>
                   			<input name="isAvailable" type="checkbox" class="filled-in" checked/>
@@ -106,13 +133,14 @@
 					</div>
 					<div class="bookINFO">
 						<div class="bookTITLE">
+							<p><small>{{publisher}}, {{genre}}</small></p>
 							<a href="/books/{{_id}}">{{title}} ({{year}},  {{author}})</a>
 						</div>
 						<div class="bookREV">
 							{{about}}
 						</div>
 						<div class="bookNAL">
-							В наличии {{inAvailable}}
+							{{#if inAvailable}}В наличии {{/if}}
 						</div>
 						{{#if @root.isLibrarian}}
 							<a href="/books/{{_id}}/edit" class="btn --orange">Редактировать</a>

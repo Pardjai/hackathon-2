@@ -45,12 +45,22 @@ router.get('/:id/edit', async(req, res) => {
 })
 
 router.post('/', async (req, res) => {
-    const preValues = await Book.find().select('genre')
-    const allValues = preValues.map(book => book.genre)
+    const preValues = await Book.find().select(['genre', 'publisher'])
+    let allGenres = preValues.map(book => book.genre)
+    let allPub = preValues.map(book => book.publisher)
+    allGenres = [...new Set(allGenres)]
+    allPub = [...new Set(allPub)]
+
     const activeValues = Object.keys(req.body) == 0 ? allValues : Object.keys(req.body)
+
+    const activeGenres = allGenres.filter(value => activeValues.includes(value))
+    const activePub = allPub.filter(value => activeValues.includes(value))
     
+
+
     const books = await Book.find()
-    let filteredBooks = books.filter(book => activeValues.includes(book.genre))
+    let filteredBooks = books.filter(book => activeGenres.includes(book.genre))
+    filteredBooks = filteredBooks.filter(book => activePub.includes(book.publisher))
 
 if(activeValues.includes('isAvailable')){
     filteredBooks = filteredBooks.filter(book => book.inAvailable > 0)
@@ -62,8 +72,6 @@ if(activeValues.includes('isAvailable')){
         title: 'Книги',
         isBooks: true,
         books : filteredBooks,
-        allValues,
-        activeValues,
      })
 })
 
