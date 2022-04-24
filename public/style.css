@@ -744,7 +744,7 @@ header{
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    width: 10%;
+    width: auto;
     text-decoration: none;
 
 }
@@ -1215,8 +1215,8 @@ button.btn, .--orange{
 
 
 .profileImg.splash img{
-    width: 32px;
-    height: 32px;
+    width: 24px;
+    height: 24px;
     pointer-events: none;
 }
 
@@ -1238,4 +1238,8 @@ button.btn, .--orange{
 }
 .bookTITLE{
     height: auto;
+}
+
+header form input{
+    margin: 0 !important;
 }
