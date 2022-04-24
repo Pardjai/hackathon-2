@@ -1,31 +1,35 @@
 
 	<div class="fixed">
-		<header>
-			<div class="nav-bar">
-				<div class="logoContainer">
-					<a href="/" class="logoContainer">cheesBook</a>
-				</div>
-				<div class="searchContainer">
-					<div class="d1">
-  						<form>
-  							<input type="text" placeholder="Искать здесь...">
-  							<button type="submit"></button>
-  						</form>
-					</div>
-				</div>
-				<div class="userContainer">
-					<div class="like">
-							
-					</div>
-					{{#if user}}
+   <header>
+      <div class="nav-bar">
+         <div class="logoContainer">
+            <a href="/" class="logoContainer"><img src="/images/logo.png" alt=""></a>
+         </div>
+         <div class="searchContainer">
+            <div class="d1">
+               <form>
+                  <input type="text" placeholder="Искать здесь..." />
+                  <button type="submit"></button>
+               </form>
+            </div>
+         </div>
+         <div class="userContainer">
+            <div class="like">
+
+            </div>
+            {{#if user}}
             <a href="/profile" class="profileImg">
                <img src="/{{user.avatarUrl}}" />
             </a>
+            {{else}}
+            <h6>
+               <a href="/auth/login">Авторизация</a>
+            </h6>
             {{/if}}
-				</div>
-			</div>
-		</header>
-	</div>
+         </div>
+      </div>
+   </header>
+</div>
 	<div class="backgroundVideo">
     	<video loop muted autoplay class="back-video">
         	<source src="video/library.mp4" type="video/mp4">

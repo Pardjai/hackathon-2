@@ -574,11 +574,6 @@ footer a{
     border-top: 1px solid rgba(255,255,255,.05);
 }
 
-.year{
-    justify-self: flex-start;
-    color: #fff;
-
-}
 .none{
     margin: 0;
     padding: 0;
@@ -951,6 +946,9 @@ footer ul li{
     color: #fff;
 
 }
+.year a, .myCompany a{
+    color: #3E3E3E;
+}
 .none{
     margin: 0;
     padding: 0;
@@ -1148,10 +1146,35 @@ display: block;}
 height: auto !important;}
 
 .inAvailable-checkbox{
-    color: rgb(167, 39, 39);
+    color: #ff9321;
 }
 
 .nothing p{
     padding: 40px;
     font-size: 2rem;
+   
+}
+
+* form label.active{
+    color: #ff9321 !important;
+}
+
+* form input:focus{
+    border-bottom-color: #ff9321 !important;
+    outline-color: #ff9321 !important;
+    box-shadow: none !important;
+} 
+
+*form input[type="checkbox"]::before{
+    -webkit-tap-highlight-color: #ff9321 !important;
+}
+
+header form input, header form input:focus{
+    border: 0 !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+button.btn{
+    background: #ff9321 !important;
 }
