@@ -860,10 +860,10 @@ padding: 2rem;box-sizing: border-box;}
 .bookINFO{
 
     width: 70%;
-    background-color: salmon;
+    display: flex;background-color: salmon;
     
 
-}
+flex-direction: column;}
 .bookTITLE{
     width: 100%;
     background-color: yellow;
@@ -879,10 +879,10 @@ padding: 2rem;box-sizing: border-box;}
 }
 .bookNAL{
     width: 100%;
-    height: 15%;
-    background-color: palegoldenrod;
+    height: auto;
+    max-height: 100%;background-color: palegoldenrod;
     font-weight: bolder;
-}
+padding: 1rem 1rem 0 0;}
 .border{
     padding: 15px;
     background-color: black;
@@ -1225,7 +1225,7 @@ button.btn, .--orange{
     overflow: hidden;
     line-height: 1.3rem;
     position: relative;
-}
+margin-bottom: auto;}
 .bookREV::after {
 	content: "";
 	text-align: right;
