@@ -31,13 +31,11 @@ router.post('/settings/:id', async (req, res) => {
    if (req.file){
       toChange.avatarUrl = req.file.path
    }
+   console.log(req.file.path);
    Object.assign(user, toChange)
    await user.save()
-
-   res.render('/profile', {
-      title: 'Профль',
-      isProfile: true
-   })
+   req.session.user = user
+   res.redirect('/profile')
 } catch (e) {
    console.log(e);
 } 
