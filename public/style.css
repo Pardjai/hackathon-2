@@ -1207,3 +1207,7 @@ button.btn, .--orange{
 .profileMain{
     display: block;
 }
+
+.feedback li{
+    cursor: pointer;
+}

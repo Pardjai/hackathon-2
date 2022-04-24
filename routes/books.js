@@ -91,4 +91,17 @@ router.post('/remove', async (req, res) => {
     }
  })
 
+ router.post('/search', async(req, res) => {
+     const title = req.body.title
+     const books = await Book.find()
+    const filteredBooks = books.filter(book => {
+        bookTitle = book.title
+        return bookTitle.includes(title)
+    })
+    res.render('books', {
+        title: 'Книги',
+        books: filteredBooks,
+    })
+ })
+
 module.exports = router
