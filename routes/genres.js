@@ -20,4 +20,15 @@ router.get('/', async (req, res) => {
     })
 })
 
+router.get('/:title', async (req, res) => {
+    const books = await Book.find()
+    const genre = req.params.title
+    const filteredBooks = books.filter(book => book.genre == genre)
+    res.render('books', {
+        title: 'Книги',
+        isBooks: true,
+        books: filteredBooks,
+    })
+})
+
 module.exports = router
