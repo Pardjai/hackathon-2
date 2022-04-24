@@ -1225,7 +1225,7 @@ button.btn, .--orange{
     overflow: hidden;
     line-height: 1.3rem;
     position: relative;
-margin-bottom: auto;}
+margin-bottom: auto;flex: 1 0 auto;}
 .bookREV::after {
 	content: "";
 	text-align: right;
