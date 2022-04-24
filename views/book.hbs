@@ -1,62 +1,52 @@
+<div class="fixed">
+   <header>
+      <div class="nav-bar">
+         <div class="logoContainer">
+            <a href="/" class="logoContainer"><img src="/images/logo.png" alt=""></a>
+         </div>
+         <div class="searchContainer">
+            <div class="d1">
+               <form>
+                  <input type="text" placeholder="Искать здесь..." />
+                  <button type="submit"></button>
+               </form>
+            </div>
+         </div>
+         <div class="userContainer">
+            <div class="like">
+
+            </div>
+            {{#if user}}
+            <a href="/profile" class="profileImg">
+               <img src="/{{user.avatarUrl}}" />
+            </a>
+            {{else}}
+            <h6>
+               <a href="/auth/login">Авторизация</a>
+            </h6>
+            {{/if}}
+         </div>
+      </div>
+   </header>
+</div>
 <main>
-		<div class="bookCard1">
+<div class="bookCard1">
 			<div class="bookImage">
 				<div class="bookBorder">
-					<img src="images/book.jpg">
+					<img src="/{{previewUrl}}">
 				</div>
 			</div>
 			<div class="bookINFO">
 				<div class="bookTITLE">
-					<h4>Месяц за рубиконом</h4>
+					<h4>{{title}}</h4>
 				</div>
 				<div class="bookREV">
-					<h5>Роман российского писателя Сергея Лукьяненко в жанре <br>постапокалитической фантастики, который начали публиковать в 2021 году.<br>Третья часть «Цикла об Изменённых», продолжение романа «Три дня Индиго».
-					</h5>
+					<p>{{about}}
+					</p>
 				</div>
 				<div class="bookNAL">
-					
+					В наличии {{inAvailable}}
 				</div>
 			</div>
 		</div>
-		<div class="bookClassBooks">
-				<div class="typeTXT">
-					<h1>
-						<a href="">
-							Похожее
-						</a>
-					</h1>
-				</div>
-				<div class="typeIMG swiper-container">
-					<div class="bookTypeIMG swiper-wrapper">
-						<div class="spisok swiper-slide">
-							<div class="book">
-								<img src="images/trevel.png">
-							</div>
-						</div>
-						<div class="spisok swiper-slide">
-							<div class="book">
-								<img src="images/roman.png">
-							</div>
-						</div>
-						<div class="spisok swiper-slide">
-							<div class="book">
-								<img src="images/fantastic.png">
-							</div>
-						</div>
-						<div class="spisok swiper-slide">
-							<div class="book">
-								<img src="images/detective.png">
-							</div>
-						</div>
-						<div class="spisok swiper-slide">
-							<div class="book">
-								<img src="images/sience.png">
-							</div>
-						</div>	
-					</div>
-
-					<div class="swiper-button-prev"></div>
-					<div class="swiper-button-next"></div>
-				</div>
-			</div>
-	</main>
+		</main>

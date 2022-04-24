@@ -94,13 +94,13 @@
 				{{#each books}}
 				<div class="bookCard">
 					<div class="bookIMG">
-
+						<a href="/books/{{_id}}">
 							<img src="/{{previewUrl}}">
-
+						</a>
 					</div>
 					<div class="bookINFO">
 						<div class="bookTITLE">
-							{{title}}
+							<a href="/books/{{_id}}">{{title}}</a>
 						</div>
 						<div class="bookREV">
 							{{about}}

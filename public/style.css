@@ -836,7 +836,7 @@ input{
     border: 0;
 }
 main{
-    background: wheat;
+    background: transparent;
     height: auto;
     width: 70%;
     padding-left:15%;
@@ -865,7 +865,7 @@ padding: 2rem;box-sizing: border-box;}
 
     width: 70%;
     background-color: salmon;
-    display: table-column;
+    
 
 }
 .bookTITLE{
@@ -1071,6 +1071,47 @@ footer ul li{
 
 }
 
+.bookCard1{
+    color: black;
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+    background-color: #fff;
+    display: flex;
+}
+
+.bookCard1 *{
+    background-color: transparent;
+}
+
+.bookCard1 .bookImage{
+    padding: 40px;
+    border-right: 1px solid #E8E8E8;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    width: 30%;
+    
+    background-color: white;
+}
+
+.bookCard1 img{
+   height: 100%;
+   max-width: 250px;
+    object-fit: cover;
+}
+
+.bookCard1{
+    font-weight: bolder;
+}
+.bookCard1 .bookTITLE h4{
+    font-weight: bolder;
+    font-size: 20px;
+}
+.bookCard1 .bookINFO{
+    padding: 20px;
+}
+
 .bookCard img{
    height: 100%;max-width: 100%;
     object-fit: cover;
@@ -1088,6 +1129,10 @@ footer ul li{
 
 .bookCard *{
     background-color: transparent;
+}
+
+.bookCard a{
+    color: #202020;
 }
 
 .checkBox{
