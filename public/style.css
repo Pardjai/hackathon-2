@@ -1054,7 +1054,7 @@ footer ul li{
     height: 350px;
 }
 .spisok{
-    padding-left: 20px;
+    
     float: right;
     display: flex;
     overflow-x: auto;
