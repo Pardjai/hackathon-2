@@ -634,7 +634,7 @@ body{
 }
 .centered {
     position: relative;
-    top: 10%;
+    bottom: -30%;
     right: -43%; 
     z-index: 200;
     width: 30%;

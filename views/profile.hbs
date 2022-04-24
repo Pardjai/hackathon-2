@@ -1,23 +1,65 @@
-<div>
-   <div class="col s6 avatar-container">
-      {{#if user.avatarUrl}}
-         <img
-            class="avatar"
-            src="/{{user.avatarUrl}}"
-            alt="аватар-{{user.name}}"
-         />
-      {{else}}
-         <p>Аватара нет</p>
-      {{/if}}
-   </div>
+<div class="fixed">
+   <header>
+      <div class="nav-bar">
+         <div class="logoContainer">
+            <a href="/" class="logoContainer"><img src="/images/logo.png" alt=""></a>
+         </div>
+         <div class="searchContainer">
+            <div class="d1">
+               <form>
+                  <input type="text" placeholder="Искать здесь..." />
+                  <button type="submit"></button>
+               </form>
+            </div>
+         </div>
+         <div class="userContainer">
+            <div class="like">
 
-   <div class="col s6">
-      <div class="profile-info">
-         <div class="user-name"><b>{{user.name}}</b></div>
-         <p><strong>{{user.email}}</strong></p>
+            </div>
+            {{#if user}}
+            <a href="/profile" class="profileImg">
+               <img src="/{{user.avatarUrl}}" />
+            </a>
+            {{else}}
+            <h6>
+               <a href="/auth/login">Авторизация</a>
+            </h6>
+            {{/if}}
+         </div>
       </div>
-
-      <a href="profile/settings/{{user._id}}">Настройки</a>
-
-   </div>
+   </header>
 </div>
+<main>
+		<div class="mainPage">
+			<div class="centered">
+				<div class="logo">
+                {{#if user.avatarUrl}}
+					<a href="" class="Avatar">
+						
+                  <img
+                     class="avatar"
+                     src="/{{user.avatarUrl}}"
+                     alt="аватар-{{user.name}}"
+                  />
+                  </a>
+                   {{else}}
+                     <p>Аватара нет</p>
+     
+					
+                {{/if}}
+				</div>
+				<div class="rega">
+					<b>{{user.name}}</b>
+					<strong>{{user.email}}</strong>
+				</div>
+				<div class="logIn">
+					<div class="txt">
+						<a href="/auth/logout">
+							Выйти
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+
