@@ -894,12 +894,12 @@ input{
 }
 
 footer{
-    height: 40%;
+    height: 150px;
     width: 70%;
     padding-top: 44px;
     margin-right: 15%;
     margin-left: 15%;
-    background:#0C0C0C;
+    background: #c7c7c7;
     display: flex;
     flex-direction: column;
     color: #fff;
