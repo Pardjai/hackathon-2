@@ -92,10 +92,12 @@ router.post('/remove', async (req, res) => {
  })
 
  router.post('/search', async(req, res) => {
-     const title = req.body.title
+     let title = req.body.title
+     title = title.toLowerCase()
      const books = await Book.find()
     const filteredBooks = books.filter(book => {
         bookTitle = book.title
+        bookTitle = bookTitle.toLowerCase()
         return bookTitle.includes(title)
     })
     res.render('books', {
