@@ -16,10 +16,12 @@
             <div class="like">
 
             </div>
-            {{#if user}}
+             {{#if user}}
+            {{#if user.avatarUrl}}
             <a href="/profile" class="profileImg">
                <img src="/{{user.avatarUrl}}" />
             </a>
+            {{/if}}
             {{else}}
             <h6>
                <a href="/auth/login">Авторизация</a>
