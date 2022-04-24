@@ -28,7 +28,7 @@ router.post('/', async (req, res) => {
            })
 
            await book.save()
-           res.redirect('/profile')
+           res.redirect('/books')
         } catch (err) {
            throw err
         }
