@@ -4,10 +4,17 @@ const router = Router()
 
 router.get('/', async (req, res) => {
     const books = await Book.find()
+    const preValues = await Book.find().select(['genre', 'publisher'])
+    let allGenres = preValues.map(book => book.genre)
+    let allPub = preValues.map(book => book.publisher)
+    allGenres = [...new Set(allGenres)]
+    allPub = [...new Set(allPub)]
+    const allValues = [...allGenres, ...allPub]
 
     res.render('books', {
         title: 'Книги',
         books,
+        activeValues: allValues,
     })
 })
 
@@ -50,6 +57,9 @@ router.post('/', async (req, res) => {
     let allPub = preValues.map(book => book.publisher)
     allGenres = [...new Set(allGenres)]
     allPub = [...new Set(allPub)]
+    const allValues = [...allGenres, ...allPub]
+
+    console.log(req.body);
 
     const activeValues = Object.keys(req.body) == 0 ? allValues : Object.keys(req.body)
 
@@ -67,11 +77,11 @@ if(activeValues.includes('isAvailable')){
 } else{
     filteredBooks = filteredBooks.filter(book => book.inAvailable === 0)
 }
-
     res.render('books', {
         title: 'Книги',
         isBooks: true,
         books : filteredBooks,
+        activeValues
      })
 })
 
