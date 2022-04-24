@@ -1077,6 +1077,7 @@ footer ul li{
     border-radius: 20px;
     background-color: #fff;
     display: flex;
+    margin-bottom: 1rem;
 }
 
 .bookCard1 *{
