@@ -59,8 +59,6 @@ router.post('/', async (req, res) => {
     allPub = [...new Set(allPub)]
     const allValues = [...allGenres, ...allPub]
 
-    console.log(req.body);
-
     const activeValues = Object.keys(req.body) == 0 ? allValues : Object.keys(req.body)
 
     const activeGenres = allGenres.filter(value => activeValues.includes(value))
