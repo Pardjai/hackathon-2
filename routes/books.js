@@ -13,13 +13,14 @@ router.get('/', async (req, res) => {
 
 router.get('/:id', async(req, res) => {
     const book = await Book.findById(req.params.id)
-    const {title, author, previewUrl, about, inAvailable} = book
+    const {title, author, previewUrl, about, inAvailable, year} = book
 
     res.render('book', {
         title,
         author,
         previewUrl,
         about,
+        year,
         inAvailable
     })
 })
