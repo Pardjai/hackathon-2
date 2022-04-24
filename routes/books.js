@@ -2,6 +2,15 @@ const { Router } = require('express')
 const Book = require('../models/book')
 const router = Router()
 
+router.get('/', async (req, res) => {
+    const books = await Book.find()
+
+    res.render('books', {
+        title: 'Книги',
+        books,
+    })
+})
+
 router.get('/:id', async(req, res) => {
     const book = await Book.findById(req.params.id)
     const {title, author, previewUrl, about} = book
@@ -36,10 +45,17 @@ router.get('/:id/edit', async(req, res) => {
 router.post('/', async (req, res) => {
     const preValues = await Book.find().select('genre')
     const allValues = preValues.map(book => book.genre)
-    const activeValues = Object.values(req.body) == 0 ? allValues : Object.values(req.body)
-
+    const activeValues = Object.keys(req.body) == 0 ? allValues : Object.keys(req.body)
+    
     const books = await Book.find()
-    const filteredBooks = books.filter(book => activeValues.includes(book.genre))
+    let filteredBooks = books.filter(book => activeValues.includes(book.genre))
+
+if(activeValues.includes('isAvailable')){
+    filteredBooks = filteredBooks.filter(book => book.inAvailable > 0)
+} else{
+    filteredBooks = filteredBooks.filter(book => book.inAvailable === 0)
+}
+
     res.render('books', {
         title: 'Книги',
         isBooks: true,

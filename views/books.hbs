@@ -1,0 +1,121 @@
+<div class="fixed">
+   <header>
+      <div class="nav-bar">
+         <div class="logoContainer">
+            <a href="/" class="logoContainer"><img src="/images/logo.png" alt=""></a>
+         </div>
+         <div class="searchContainer">
+            <div class="d1">
+               <form>
+                  <input type="text" placeholder="Искать здесь..." />
+                  <button type="submit"></button>
+               </form>
+            </div>
+         </div>
+         <div class="userContainer">
+            <div class="like">
+
+            </div>
+            {{#if user}}
+            <a href="/profile" class="profileImg">
+               <img src="/{{user.avatarUrl}}" />
+            </a>
+            {{else}}
+            <h6>
+               <a href="/auth/login">Авторизация</a>
+            </h6>
+            {{/if}}
+         </div>
+      </div>
+   </header>
+</div>
+<main>
+		<div class="mainpage_main">
+
+			<div class="sidebarColumn">
+				<div class="columnButton">
+                    <form action="/books" method="post">
+					<h6 class="hedder">
+						Жанр
+					</h6>
+					<div class="checkBox">
+						
+						<label>
+                  			<input name="Детектив" type="checkbox" class="filled-in" checked/>
+                  			<span>
+                  				Детектив
+                  			</span>
+               			</label>
+
+					
+					 	<label>
+                  			<input name="Роман" type="checkbox" class="filled-in" checked/>
+                  			<span>
+                  				Роман
+                  			</span>
+               			</label>
+					
+						<label>
+                  			<input name="Фантастика" type="checkbox" class="filled-in" checked/>
+                  			<span>
+                  				Фантастика
+                  			</span>
+               			</label>
+					
+					 	<label>
+                  			<input name="Научная фантастика" type="checkbox" class="filled-in" checked/>
+                  			<span>
+                  				Научная фантастика
+                  			</span>
+               			</label>
+
+						<label>
+                  			<input name="Приключения" type="checkbox" class="filled-in" checked/>
+                  			<span>
+                  				Приключения
+                  			</span>
+               			</label>
+					</div>
+
+					<div class="checkBox">
+						<label>
+                  			<input name="isAvailable" type="checkbox" class="filled-in" checked/>
+                  			<span class="inAvailable-checkbox">
+                  				В наличии
+                  			</span>
+               			</label>
+					</div>
+					<button type="submit" class="btn">Отфильтровать</button>
+                    </form>
+				</div>
+			</div>
+			<div class="mainColumn">
+				{{#if books.length}}
+				{{#each books}}
+				<div class="bookCard">
+					<div class="bookIMG">
+
+							<img src="/{{previewUrl}}">
+
+					</div>
+					<div class="bookINFO">
+						<div class="bookTITLE">
+							{{title}}
+						</div>
+						<div class="bookREV">
+							{{about}}
+						</div>
+						<div class="bookNAL">
+							В наличии {{inAvailable}}
+						</div>
+					</div>
+				</div>
+				{{/each}}
+				{{else}}
+				<section class="nothing">
+					<p>Ничего не найдено</p>
+				</section>
+				{{/if}}
+			</div>
+		</div>
+	</main>
