@@ -1,14 +1,16 @@
 const { Router } = require('express')
 const router = Router()
 const Book = require('../models/book')
+const isLibrarian = require('../middlewares/isLibrarian')
+const isAuth = require('../middlewares/auth')
 
-router.get('/', (req, res) => {
+router.get('/', isAuth, isLibrarian, (req, res) => {
    res.render('add', {
       title: 'Добавление книги',
    })
 })
 
-router.post('/', async (req, res) => {
+router.post('/', isAuth, isLibrarian, async (req, res) => {
         try {
            const { title, author, genre, about, url, publisher, year, inAvailable } = req.body
            req.session.registerData = { title, author, genre, about }

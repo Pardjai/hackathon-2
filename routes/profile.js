@@ -1,9 +1,9 @@
 const { Router } = require('express')
 const router = Router()
-const auth = require('../middlewares/auth')
+const isAuth = require('../middlewares/auth')
 const User = require('../models/user')
 
-router.get('/', auth, async (req, res) => {
+router.get('/', isAuth, async (req, res) => {
    const user = await User.findById(req.session.user._id)
    res.render('profile', {
       title: 'Профиль',
@@ -12,7 +12,7 @@ router.get('/', auth, async (req, res) => {
    })
 })
 
-router.get('/settings/:id', (req, res) => {
+router.get('/settings/:id', isAuth, (req, res) => {
    const userId = req.params.id
    res.render('settings', {
       title: 'Настройки',
@@ -20,7 +20,7 @@ router.get('/settings/:id', (req, res) => {
    })
 })
 
-router.post('/settings/:id', async (req, res) => {
+router.post('/settings/:id', isAuth, async (req, res) => {
    try {
    const userId = req.params.id
    const user = await User.findById(userId)
