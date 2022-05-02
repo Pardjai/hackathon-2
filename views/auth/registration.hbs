@@ -3,14 +3,14 @@
         	<source src="/video/library.mp4" type="video/mp4">
     	</video>
 	</div>
-	<div class="centered">
+	<div class="centered reg-centered">
 		<div class="logo">
 			<a href="/" class="logoA">
 				<img src="/images/logo.png" class="">
 			</a>
 		</div>
 		<div class="rega">
-			<div id="register" class="">
+			<div id="register" class="register">
          {{#if registerError}}
             <p class="alert">{{registerError}}</p>
          {{/if}}
@@ -106,6 +106,10 @@
                disabled
             >Зарегистрироваться</button>
          </form>
+
+         <a href="/auth/login">
+					Войти
+				</a>
          
       </div>
 		</div>

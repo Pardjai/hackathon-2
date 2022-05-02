@@ -2,6 +2,8 @@ const { Router } = require("express");
 const router = Router();
 const isAuth = require("../middlewares/auth");
 const User = require("../models/user");
+const { validationResult } = require("express-validator");
+const { profileValidators } = require("../utils/validators");
 
 router.get("/", isAuth, async (req, res) => {
    try {
@@ -36,7 +38,15 @@ router.get("/settings/:id", isAuth, (req, res) => {
    }
 });
 
-router.post("/settings/:id", isAuth, async (req, res) => {
+router.post("/settings/:id", profileValidators, isAuth, async (req, res) => {
+   
+   const errors = validationResult(req);
+         if (!errors.isEmpty()) {
+            console.log(errors);
+            req.flash("profileError", errors.array()[0].msg);
+            return res.status(422).redirect(`/profile/settings/${req.params.id}`);
+         }
+
    try {
       const userId = req.params.id;
       const user = await User.findById(userId);
@@ -48,7 +58,6 @@ router.post("/settings/:id", isAuth, async (req, res) => {
       if (req.file) {
          toChange.avatarUrl = req.file.path;
       }
-      console.log(req.file.path);
       Object.assign(user, toChange);
       await user.save();
       req.session.user = user;

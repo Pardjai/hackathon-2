@@ -31,9 +31,6 @@ inAvailable: {
 previewUrl: {
     type: String,
 },
-url: {
-    type: String,
-}
 })
 
 module.exports = model('Book', bookSchema)

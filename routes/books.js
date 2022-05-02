@@ -3,6 +3,8 @@ const Book = require("../models/book");
 const router = Router();
 const isLibrarian = require("../middlewares/isLibrarian");
 const isAuth = require("../middlewares/auth");
+const { validationResult } = require("express-validator");
+const { searchValidators, bookValidators } = require("../utils/validators");
 
 router.get("/", async (req, res) => {
    try {
@@ -118,8 +120,14 @@ router.post("/", async (req, res) => {
    }
 });
 
-router.post("/edit", isLibrarian, isAuth, async (req, res) => {
+router.post("/edit", bookValidators ,isLibrarian, isAuth, async (req, res) => {
    try {
+      const errors = validationResult(req);
+      if (!errors.isEmpty()) {
+         console.log(errors);
+         return res.status(422).redirect("/books");
+      }
+
       const { id } = req.body;
       delete req.body.id;
 
@@ -145,7 +153,14 @@ router.post("/remove", isLibrarian, isAuth, async (req, res) => {
    }
 });
 
-router.post("/search", async (req, res) => {
+router.post("/search", searchValidators, async (req, res) => {
+
+   const errors = validationResult(req);
+         if (!errors.isEmpty()) {
+            console.log(errors);
+            return res.status(422).redirect("/books");
+         }
+
    try {
         let title = req.body.title;
         title = title.toLowerCase();

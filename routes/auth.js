@@ -13,6 +13,8 @@ router.get("/login", (req, res) => {
    res.render("auth/login", {
       title: "Авторизация",
       isLogin: true,
+      loginError: req.flash("loginError"),
+      loginData: req.session.loginData
    });
 });
 
@@ -20,6 +22,7 @@ router.get("/registration", (req, res) => {
    res.render("auth/registration", {
       title: "Регистрация",
       isLogin: true,
+      registerData: req.session.registerData
    });
 });
 
@@ -35,7 +38,7 @@ router.get("/logout", async (req, res) => {
 
 router.post(
    "/login",
-   /*loginValidators,*/ async (req, res) => {
+   loginValidators, async (req, res) => {
       try {
          if (req.body === {}) {
             throw "Пустой req.body на роутере /auth/login (POST)";
@@ -62,6 +65,7 @@ router.post(
                if (err) {
                   throw err;
                }
+               req.session.loginData = {};
                res.redirect("/");
             });
          } else {
@@ -75,7 +79,7 @@ router.post(
 );
 router.post(
    "/register",
-   /*registerValidators,*/ async (req, res) => {
+   registerValidators, async (req, res) => {
       try {
          const errors = validationResult(req);
          if (!errors.isEmpty()) {
@@ -99,6 +103,7 @@ router.post(
          smtpTransport.sendMail(regEmail(email), (err, res) => {
             err ? console.log(err) : smtpTransport.close();
          });
+         req.session.registerData = {};
          res.redirect("/profile");
       } catch (err) {
          console.log(err);

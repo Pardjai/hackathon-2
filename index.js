@@ -14,9 +14,9 @@ const express = require("express"); //для ускорения разработ
 const exphbs = require("express-handlebars"); //для frontend
 const mongoose = require("mongoose"); //для взаимодействя с mongoDB
 const session = require("express-session"); //для работы с сессиями
-const flash = require('connect-flash')
+const flash = require("connect-flash");
 const varMiddleware = require("./middlewares/variables"); //свой middleware. добавляет параметры к ответу сервера
-const fileMiddleware = require('./middlewares/file')
+const fileMiddleware = require("./middlewares/file");
 
 // создание сервера =====================================================================================================================================================================================================
 const app = express();
@@ -36,7 +36,7 @@ const hbs = exphbs.create({
    defaultLayout: "main",
    extname: "hbs",
    handlebars: allowInsecurePrototypeAccess(Handlebars), //для устранения ошибки при взаимодействии Handlebars и mongoos
-   helpers: require('./utils/hbs-helpers'),
+   helpers: require("./utils/hbs-helpers"),
 });
 
 // внедрение handlebars в app
@@ -50,11 +50,11 @@ app.use("/profile", express.static(path.join(__dirname, "/images")));
 app.use(express.static(path.join(__dirname, "public"))); //задаёт 'public' как статическую папку для обращения через "/"
 
 // Session =====================================================================================================================================================================================================
-const MongoStore = require('connect-mongodb-session')(session)
+const MongoStore = require("connect-mongodb-session")(session);
 const store = new MongoStore({
-   collection: 'sessions',
+   collection: "sessions",
    uri: keys.MONGODB_URI,
-})
+});
 
 // настройка конфигурации сессии
 app.use(
@@ -62,17 +62,15 @@ app.use(
       secret: "Str12-01Rt",
       resave: false,
       saveUninitialized: false,
-      store
+      store,
    })
 );
 
-
-
 // Middlewares =====================================================================================================================================================================================================
 app.use(varMiddleware);
-app.use('/profile', fileMiddleware.single('avatar'));
-app.use('/add', fileMiddleware.single('preview'));
-app.use(flash())
+app.use("/profile", fileMiddleware.single("avatar"));
+app.use("/add", fileMiddleware.single("preview"));
+app.use(flash());
 
 // routes =====================================================================================================================================================================================================
 // регистрация роутов
@@ -98,12 +96,9 @@ const PORT = process.env.PORT || 3000;
 // запуск сервера
 async function start() {
    try {
-      await mongoose.connect(
-         keys.MONGODB_URI,
-         {
-            useNewUrlParser: true,
-         }
-      );
+      await mongoose.connect(keys.MONGODB_URI, {
+         useNewUrlParser: true,
+      });
       // запуск сервера
       app.listen(PORT, () => {
          console.log(`Server is running on port ${PORT}`);
