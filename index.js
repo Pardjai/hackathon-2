@@ -46,7 +46,6 @@ app.set("views", "views");
 
 // статические папки
 app.use("/images", express.static(path.join(__dirname, "images")));
-app.use("/profile", express.static(path.join(__dirname, "/images")));
 app.use(express.static(path.join(__dirname, "public"))); //задаёт 'public' как статическую папку для обращения через "/"
 
 // Session =====================================================================================================================================================================================================

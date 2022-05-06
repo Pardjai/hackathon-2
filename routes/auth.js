@@ -22,7 +22,8 @@ router.get("/registration", (req, res) => {
    res.render("auth/registration", {
       title: "Регистрация",
       isLogin: true,
-      registerData: req.session.registerData
+      registerData: req.session.registerData,
+      registerError: req.flash("registerError")
    });
 });
 
@@ -48,7 +49,7 @@ router.post(
          if (!errors.isEmpty()) {
             console.log(errors);
             req.flash("loginError", errors.array()[0].msg);
-            return res.status(422).redirect("/auth/login#login");
+            return res.status(422).redirect("/auth/login");
          }
 
          const { email, password } = req.body;
@@ -70,7 +71,7 @@ router.post(
             });
          } else {
             req.flash("loginError", "Неверный пароль");
-            res.redirect("/auth/login#login");
+            res.redirect("/auth/login");
          }
       } catch (err) {
          console.log(err);
@@ -83,8 +84,9 @@ router.post(
       try {
          const errors = validationResult(req);
          if (!errors.isEmpty()) {
+            console.log(errors)
             req.flash("registerError", errors.array()[0].msg);
-            return res.status(422).redirect("/auth/login#register");
+            return res.status(422).redirect("/auth/registration");
          }
 
          const { name, email, phone, password } = req.body;
@@ -104,7 +106,7 @@ router.post(
             err ? console.log(err) : smtpTransport.close();
          });
          req.session.registerData = {};
-         res.redirect("/profile");
+         res.redirect("/auth/login");
       } catch (err) {
          console.log(err);
       }
